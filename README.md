@@ -22,14 +22,14 @@ Whenever the program is run it refreshes all the dowloads as quite often profess
 4. Run ```pip3 install -r requirements.txt```
 5. Check your chrome version by clicking [here](chrome://version/) or typing "chrome://version/" into Google Chrome.
 6. Download a chromedriver for your machine and chrome version from [here](https://chromedriver.chromium.org/downloads) and add it to the lib folder (Make sure to delete any existing chromedrivers that might be there).
-7. Run the command ```python3 materials-downloader.py -s <your_shortcode> -p <your_password>``` to set your credentials. You just have to do this once and can use the same command if your shortcode/password has been changed.
+7. Run the command ```python3 materials-downloader.py -s <your_shortcode> -p <your_password> -d <directory>``` to set your credentials and the relative path of the location where you want to store the downloads. You just have to do this once and can use the same command if your shortcode/password has been changed.
 
 ## Optional Flags
 
 1. ```-q <course_code>``` flag can be used to refresh materials for a particular course only. For example, if you just want to refresh the materials for the course 40009 - Computer Practical 1, you should run ```python3 materials-downloader.py -q 40009```.
-2. ```-d <base_dir>``` flag can be used to specify a relativepath of where the directory containing all the materials should be present.
-3. ```-r``` flag can be used to run the browser outside of headless mode.
-4. ```-s``` flag can be used to set your shortcode.
-5. ```-p <password>``` flag can be used to set the password.
+2. ```-r``` flag can be used to run the browser outside of headless mode.
+3. ```-s <shortcode>``` flag can be used to set your shortcode.
+4. ```-p <password>``` flag can be used to set the password.
+5. ```-d <dir>``` flag can be used to set where the directory containing all the materials is present.
 6. ```-v``` flag can be used for verbosity.
 7. ```-h``` flag can be used to read about optional flags at anytime.

@@ -8,6 +8,8 @@ sys.path.insert(1, './lib')
 from config import *
 from helpers import *
 
+from distutils.dir_util import copy_tree
+from distutils.dir_util import remove_tree
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -23,25 +25,37 @@ if __name__ == "__main__":
         year = YEAR%100 - int(SHORTCODE[-2:])
     except ValueError:
         year = YEAR -1
-    parser.add_argument("-d", "--dir",    help="directoty where the materials should be stored", 
-                                        action="store",type=str,
-                                        default=f"Year {year}", nargs="?")
+    parser.add_argument("-d", "--dir", help="sets the directory where the materials should be stored", 
+                                       action="store",type=str)
 
     parser.add_argument("-s", "--shortcode", help="sets the shortcode", action="store")
     parser.add_argument("-p", "--password",  help="sets the password", action="store")
                                       
     args = parser.parse_args()
     exit = False
+
     with open("lib/auth.json") as authfile:
         auth = json.load(authfile)
         if args.shortcode:
             auth["shortcode"] = args.shortcode
+            print(f"Shortcode set to {args.shortcode}")
             exit = True
 
         if args.password:
             auth["password"] = args.password
+            print(f"Password set to {args.password}")
             exit = True
 
+        if args.dir:
+            if os.path.isdir(args.dir):
+                auth["directory"] = args.dir
+                print(f"Directory set to {args.dir}")
+            else:
+                print(f"{args.dir} is not a valid directory!!!")
+                print(f"Please pass in a valid directory")
+
+            exit = True
+            
     with open("lib/auth.json", "wt") as authfile:
         json.dump(auth, authfile)
 
@@ -80,9 +94,14 @@ if __name__ == "__main__":
 
     print("authenticating...")
     authenticate(driver)
-    
+    base_dir = f"Year {year}"
     if args.quick:
-        download_course(driver, args.quick, base_dir=args.dir, verbose=verbose)
+        download_course(driver, args.quick, base_dir=base_dir, verbose=verbose)
     else:
-        download_courses(driver, headless=headless, base_dir=args.dir, verbose=verbose)
+        download_courses(driver, headless=headless, base_dir=base_dir, verbose=verbose)
+
     driver.quit()
+    print("Finishing...")
+    copy_tree(base_dir, DIRECTORY)
+    remove_tree(base_dir)
+    print("DONE!!!")
