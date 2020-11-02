@@ -18,20 +18,28 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--real", help="runs the browser outside of headless mode", action="store_true")
     parser.add_argument("-v", "--verbose", help="sets uotput to be verbose", action="store_true")                      
+    parser.add_argument("-c", "--credentials", help="shows the credentials", action="store_true")
 
-    parser.add_argument("-q", "--quick",  help="gets materials for the provided course_code", 
+    parser.add_argument("-q", "--quick", help="gets materials for the provided course_code", 
                                           action="store", type=str)
-    parser.add_argument("-d", "--dir", help="sets the directory where the materials should be stored", 
-                                       action="store",type=str)
-
+    parser.add_argument("-m", "--move", help="stores downloads in specified location", 
+                                          action="store", type=str)
+    
+    
+    parser.add_argument("-d", "--dir", help="sets the directory where the materials should be stored", action="store")
     parser.add_argument("-s", "--shortcode", help="sets the shortcode", action="store")
     parser.add_argument("-p", "--password",  help="sets the password", action="store")
                                       
     args = parser.parse_args()
     exit = False
 
+    
     with open("lib/auth.json") as authfile:
         auth = json.load(authfile)
+        if args.credentials:
+            [print(f"Your {key} is set as {auth[key]}") for key in auth.keys()]
+            quit()
+
         if args.shortcode:
             auth["shortcode"] = args.shortcode
             print(f"Shortcode set to {args.shortcode}")
@@ -55,13 +63,8 @@ if __name__ == "__main__":
     with open("lib/auth.json", "wt") as authfile:
         json.dump(auth, authfile)
 
-    if exit:
-        try:
-            driver.quit()
-        except:
-            pass
-        finally:    
-            quit()
+    if exit:    
+        quit()
 
     headless = not args.real
     verbose  = args.verbose
@@ -90,7 +93,8 @@ if __name__ == "__main__":
 
     print("authenticating...")
     authenticate(driver)
-    base_dir = "downloads"
+
+    base_dir = args.move if arg.move else "downloads"
     if args.quick:
         download_course(driver, args.quick, base_dir=base_dir, verbose=verbose)
     else:
