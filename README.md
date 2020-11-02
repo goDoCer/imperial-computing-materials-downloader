@@ -27,9 +27,11 @@ Whenever the program is run it refreshes all the dowloads as quite often profess
 ## Optional Flags
 
 1. ```-q <course_code>``` flag can be used to refresh materials for a particular course only. For example, if you just want to refresh the materials for the course 40009 - Computer Practical 1, you should run ```python3 materials-downloader.py -q 40009```.
-2. ```-r``` flag can be used to run the browser outside of headless mode.
-3. ```-s <shortcode>``` flag can be used to set your shortcode.
-4. ```-p <password>``` flag can be used to set the password.
-5. ```-d <dir>``` flag can be used to set where the directory containing all the materials is present.
-6. ```-v``` flag can be used for verbosity.
-7. ```-h``` flag can be used to read about optional flags at anytime.
+2. ```-l <location>``` flag to store the downloaded materials in a place other tha the set directory.
+3. ```-r``` flag can be used to run the browser outside of headless mode.
+4. ```-s <shortcode>``` flag can be used to set your shortcode.
+5. ```-p <password>``` flag can be used to set the password.
+6. ```-d <dir>``` flag can be used to set where the directory containing all the materials is present.
+7. ```-c``` flag to view your credentials.
+8. ```-v``` flag can be used for verbosity.
+9. ```-h``` flag can be used to read about optional flags at anytime.
