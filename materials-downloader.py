@@ -94,7 +94,7 @@ if __name__ == "__main__":
     print("authenticating...")
     authenticate(driver)
 
-    base_dir = args.location if arg.location else "downloads"
+    base_dir = args.location if args.location else "downloads"
     if args.quick:
         download_course(driver, args.quick, base_dir=base_dir, verbose=verbose)
     else:

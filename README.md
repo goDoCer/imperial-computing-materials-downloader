@@ -22,7 +22,7 @@ Whenever the program is run it refreshes all the dowloads as quite often profess
 4. Run ```pip3 install -r requirements.txt```
 5. Check your chrome version by clicking [here](chrome://version/) or typing "chrome://version/" into Google Chrome.
 6. Download a chromedriver for your machine and chrome version from [here](https://chromedriver.chromium.org/downloads) and add it to the lib folder (Make sure to delete any existing chromedrivers that might be there).
-7. Run the command ```python3 materials-downloader.py -s <your_shortcode> -p <your_password> -l <location>``` to set your credentials and the relative path of the location where you want to store the downloads. You just have to do this once and can use the same command if your shortcode/password has been changed.
+7. Run the command ```python3 materials-downloader.py -s <your_shortcode> -p <your_password> -d <directory>``` to set your credentials and the relative path of the location where you want to store the downloads. You just have to do this once and can use the same command if your shortcode/password has been changed.
 
 ## Optional Flags
 
@@ -31,6 +31,7 @@ Whenever the program is run it refreshes all the dowloads as quite often profess
 3. ```-r``` flag can be used to run the browser outside of headless mode.
 4. ```-s <shortcode>``` flag can be used to set your shortcode.
 5. ```-p <password>``` flag can be used to set the password.
-6. ```-c``` flag to view your credentials.
-7. ```-v``` flag can be used for verbosity.
-8. ```-h``` flag can be used to read about optional flags at anytime.
+6. ```-d <dir>``` flag can be used to set where the directory containing all the materials is present.
+7. ```-c``` flag to view your credentials.
+8. ```-v``` flag can be used for verbosity.
+9. ```-h``` flag can be used to read about optional flags at anytime.
