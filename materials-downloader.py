@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     parser.add_argument("-q", "--quick", help="gets materials for the provided course_code", 
                                           action="store", type=str)
-    parser.add_argument("-m", "--move", help="stores downloads in specified location", 
+    parser.add_argument("-l", "--location", help="stores downloads in specified location", 
                                           action="store", type=str)
     
     
@@ -94,7 +94,7 @@ if __name__ == "__main__":
     print("authenticating...")
     authenticate(driver)
 
-    base_dir = args.move if arg.move else "downloads"
+    base_dir = args.location if arg.location else "downloads"
     if args.quick:
         download_course(driver, args.quick, base_dir=base_dir, verbose=verbose)
     else:
