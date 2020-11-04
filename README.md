@@ -12,7 +12,7 @@ Whenever the program is run it refreshes all the dowloads as quite often profess
 
 1. Login credentials of your materials account.
 2. Python3 installed on your machine
-3 .Google Chrome bowser
+3. Google Chrome bowser
 
 ## How to use it
 
