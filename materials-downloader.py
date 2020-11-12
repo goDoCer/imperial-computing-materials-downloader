@@ -14,7 +14,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 if __name__ == "__main__":
-
+    
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--real", help="runs the browser outside of headless mode", action="store_true")
     parser.add_argument("-v", "--verbose", help="sets uotput to be verbose", action="store_true")                      
@@ -68,6 +68,8 @@ if __name__ == "__main__":
 
     headless = not args.real
     verbose  = args.verbose
+
+    # CHrome Options
     chrome_options = Options()
     if headless:
         chrome_options.add_argument("--headless")
@@ -102,6 +104,8 @@ if __name__ == "__main__":
 
     driver.quit()
     print("Finishing...")
+    
+    # Moving the dowloads to the specified directory
     copy_tree(base_dir, DIRECTORY)
     remove_tree(base_dir)
     print("DONE!!!")
