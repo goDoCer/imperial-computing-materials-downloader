@@ -1,12 +1,12 @@
 import sys
 import os
 import json
-import argparse
 import datetime as dt
 
 sys.path.insert(1, './lib')
 from config import *
-from helpers import *
+from webhelpers import *
+from argsparser import *
 
 from distutils.dir_util import copy_tree
 from distutils.dir_util import remove_tree
@@ -14,26 +14,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 if __name__ == "__main__":
-    
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-r", "--real", help="runs the browser outside of headless mode", action="store_true")
-    parser.add_argument("-v", "--verbose", help="sets uotput to be verbose", action="store_true")                      
-    parser.add_argument("-c", "--credentials", help="shows the credentials", action="store_true")
 
-    parser.add_argument("-q", "--quick", help="gets materials for the provided course_code", 
-                                          action="store", type=str)
-    parser.add_argument("-l", "--location", help="stores downloads in specified location", 
-                                          action="store", type=str)
-    
-    
-    parser.add_argument("-d", "--dir", help="sets the directory where the materials should be stored", action="store")
-    parser.add_argument("-s", "--shortcode", help="sets the shortcode", action="store")
-    parser.add_argument("-p", "--password",  help="sets the password", action="store")
-                                      
-    args = parser.parse_args()
+    args = get_args()
     exit = False
 
-    
     with open("lib/auth.json") as authfile:
         auth = json.load(authfile)
         if args.credentials:
