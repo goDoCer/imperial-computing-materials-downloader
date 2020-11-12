@@ -1,5 +1,6 @@
 from config import *
 from selenium.common.exceptions import NoSuchElementException
+
 def download(browser, download_dir):
     browser.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
     params = {'cmd':'Page.setDownloadBehavior', 'params': {'behavior': 'allow', 'downloadPath': download_dir}}
