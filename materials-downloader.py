@@ -80,11 +80,11 @@ if __name__ == "__main__":
     print("authenticating...")
     authenticate(driver)
 
-    base_dir = args.location if args.location else "downloads"
+    base_dir = "./downloads"
     if args.quick:
         download_course(driver, args.quick, base_dir=base_dir, verbose=verbose)
     else:
-        download_courses(driver, headless=headless, base_dir=base_dir, verbose=verbose)
+        download_courses(driver, base_dir=base_dir, verbose=verbose)
 
     driver.quit()
     print("Finishing...")

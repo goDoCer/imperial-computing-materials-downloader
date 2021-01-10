@@ -44,7 +44,7 @@ def download_course(driver, course_code, base_dir, verbose=False):
         print("You can reset your credentials using -s <shortcode> and -p <password> flags")
         driver.quit()
 
-def download_courses(driver, headless=True, base_dir="./", verbose=False):
+def download_courses(driver, base_dir="./downloads/", verbose=False):
     try:
         courses_list = driver.find_element_by_xpath('//*[@id="main"]/div[3]/div/ul').find_elements_by_tag_name("li")
         courses_list = list(map(lambda c: c.text.split(" ")[0], courses_list))
