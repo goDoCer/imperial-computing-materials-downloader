@@ -13,6 +13,7 @@ Whenever the program is run it refreshes all the downloads as quite often profes
 1. Login credentials of your materials account.
 2. Python3 installed on your machine
 3. Google Chrome browser
+4. Linux
 
 ## How to use it
 
