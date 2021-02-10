@@ -8,6 +8,7 @@ from config import *
 from webhelpers import *
 from argsparser import *
 
+from getpass import getpass
 from shutil import copytree, ignore_patterns
 from distutils.dir_util import remove_tree
 from selenium import webdriver
@@ -21,17 +22,20 @@ if __name__ == "__main__":
     with open("lib/auth.json") as authfile:
         auth = json.load(authfile)
         if args.credentials:
-            [print(f"Your {key} is set as {auth[key]}") for key in auth.keys()]
-            quit()
-
-        if args.shortcode:
-            auth["shortcode"] = args.shortcode
-            print(f"Shortcode set to {args.shortcode}")
+            [print(f"Your {key} is set as {auth[key]}") for key in ["shortcode", "directory"]]
             exit = True
 
-        if p := args.password:
-            auth["password"] = p
-            print(f"Password set to {p}")
+        if s := args.shortcode:
+            auth["shortcode"] = s
+            print(f"Shortcode set to {s}")
+            exit = True
+
+        if args.password:
+            pswd = getpass('Password:')
+            auth["password"] = pswd
+            if pswd == "":
+                print("Password can not be empty")
+            print(f"Password has been set")
             exit = True
 
         if d := args.dir:
@@ -59,7 +63,7 @@ if __name__ == "__main__":
     headless = not args.real
     verbose  = args.verbose
 
-    # CHrome Options
+    # Chrome Options
     chrome_options = Options()
     if headless:
         chrome_options.add_argument("--headless")
@@ -96,6 +100,9 @@ if __name__ == "__main__":
     print("Finishing...")
     
     # Moving the dowloads to the specified directory
+    if not os.path.isdir(DIRECTORY):
+        os.mkdir(DIRECTORY)
+
     copytree(base_dir, DIRECTORY, ignore=ignore_patterns("*.crdownload"))
     remove_tree(base_dir)
     print("DONE!!!")

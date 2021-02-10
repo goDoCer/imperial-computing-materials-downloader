@@ -16,6 +16,6 @@ def get_args():
 
   parser.add_argument("-d", "--dir", help="sets the directory where the materials should be stored", action="store")
   parser.add_argument("-s", "--shortcode", help="sets the shortcode", action="store")
-  parser.add_argument("-p", "--password",  help="sets the password", action="store")
+  parser.add_argument("-p", "--password",  help="sets the password", action="store_true")
 
   return parser.parse_args()
