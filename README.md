@@ -21,7 +21,7 @@ Whenever the program is run it refreshes all the downloads as quite often profes
 3. Open the teminal and go to where you have this repository.
 4. Run ```pip3 install -r requirements.txt```
 5. Check your chrome version by clicking [here](chrome://version/) or typing "chrome://version/" into Google Chrome.
-6. Run ```sh get_chromedriver.sh``` to download a chromedriver for your linux machine. Alternatively download it from [here](https://chromedriver.chromium.org/downloads) and add it to the lib folder (Make sure to delete any existing chromedrivers that might be there).
+6. Run ```sh get_chromedriver.sh``` to download the latest chromedriver for your linux machine. Alternatively download it from [here](https://chromedriver.chromium.org/downloads).
 7. Run the command ```python3 materials-downloader.py -s <your_shortcode> -p <your_password> -d <directory>``` to set your credentials and the relative path of the location where you want to store the downloads. You just have to do this once and can use the same command if your shortcode/password has been changed.
 
 ### Optional steps to download materials with just one single command single command
