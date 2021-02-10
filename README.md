@@ -6,23 +6,40 @@ This program can be used to avoid the hassle of downloading everything manually.
 
 It downloads all the files from a student's materials page for that year. It also sets up a nice directory structure by year of study and course names.
 
-Whenever the program is run it refreshes all the dowloads as quite often professors change the naming of the uploaded materials. If you want to refresh just one course, you can do that as well.
+Whenever the program is run it refreshes all the downloads as quite often professors change the naming of the uploaded materials. If you want to refresh just one course, you can do that as well.
 
 ## Requirements
 
 1. Login credentials of your materials account.
 2. Python3 installed on your machine
-3. Google Chrome bowser
+3. Google Chrome browser
 
 ## How to use it
 
 1. Download this repository.
-2. Make sure you have python3 installed.
+2. Make sure you have python3 installed. You can download it using ```sudo apt install python3-pip```. 
 3. Open the teminal and go to where you have this repository.
 4. Run ```pip3 install -r requirements.txt```
 5. Check your chrome version by clicking [here](chrome://version/) or typing "chrome://version/" into Google Chrome.
 6. Download a chromedriver for your machine and chrome version from [here](https://chromedriver.chromium.org/downloads) and add it to the lib folder (Make sure to delete any existing chromedrivers that might be there).
 7. Run the command ```python3 materials-downloader.py -s <your_shortcode> -p <your_password> -d <directory>``` to set your credentials and the relative path of the location where you want to store the downloads. You just have to do this once and can use the same command if your shortcode/password has been changed.
+
+### Optional steps to download materials with just one single command single command
+
+8. Open up your.bashrc file in a text editor using ```vim ~/.bashrc``` or ```nano ~/.bashrc```
+9. Paste in the following lines.
+```bash
+imperial_materials_download() {
+        cd ~/imperial/imperial-computing-materials-downloader
+        python3 materials-downloader.py "$@"
+        cd
+}
+
+alias impmat="imperial_materials_download"
+```
+10. Refresh the your bashrc using the command ```source ~/.bashrc```
+11. You can just run impmat in the terminal to run the python script!
+
 
 ## Optional Flags
 
