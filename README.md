@@ -55,3 +55,6 @@ alias impmat="imperial_materials_download"
 9. ```--help``` flag can be used to read about optional flags at anytime.
 
 You can just call the flags using the fist letter of the flag like so ```-r``` where r is the first letter of the real flag.
+
+## Feedback/Suggestions Form
+https://docs.google.com/forms/d/e/1FAIpQLSeSRPt70lMiD0XuTq8K1OPlwh3pZdNCM1Qa_eQTxraEsxMWRQ/viewform
