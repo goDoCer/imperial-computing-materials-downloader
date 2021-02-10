@@ -1,12 +1,3 @@
-from selenium.common.exceptions import WebDriverException
-from selenium.webdriver.chrome.options import Options
-from selenium import webdriver
-from distutils.dir_util import remove_tree
-from shutil import copytree, ignore_patterns
-from getpass import getpass
-from argsparser import *
-from webhelpers import *
-from config import *
 import sys
 import os
 import json
@@ -14,6 +5,16 @@ import subprocess
 import datetime as dt
 
 sys.path.insert(1, './lib')
+from config import *
+from webhelpers import *
+from argsparser import *
+
+from getpass import getpass
+from shutil import copytree, ignore_patterns
+from distutils.dir_util import remove_tree
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import WebDriverException
 
 
 if __name__ == "__main__":
@@ -108,7 +109,7 @@ if __name__ == "__main__":
     print("authenticating...")
     authenticate(driver)
 
-    ############################# DOWNLOADING #############################
+    # DOWNLOADING
     base_dir = "./Downloads"
     if args.quick:
         download_course(driver, args.quick, base_dir=base_dir, verbose=verbose)

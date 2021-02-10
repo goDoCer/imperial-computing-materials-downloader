@@ -22,12 +22,14 @@ Whenever the program is run it refreshes all the downloads as quite often profes
 3. Open the teminal and go to where you have this repository.
 4. Run ```pip3 install -r requirements.txt```
 5. Run ```sh get_chromedriver.sh``` to download the latest chromedriver for your linux machine. Alternatively download it from [here](https://chromedriver.chromium.org/downloads).
-6. Run the command ```python3 materials-downloader.py -s <your_shortcode> -p <your_password> -d <directory>``` to set your credentials and the relative path of the location where you want to store the downloads. You just have to do this once and can use the same command if your shortcode/password has been changed.
+6. Run the command ```python3 materials-downloader.py -s <your_shortcode> -d <directory>``` to set your credentials and the relative path of the location where you want to store the downloads. You just have to do this once and can use the same command if your shortcode/password has been changed.
+7.  Run the command ```python3 materials-downloader.py -p``` to set your password.
+
 
 ### Optional steps to download materials with just one single command single command
 
-7. Open up your.bashrc file in a text editor using ```vim ~/.bashrc``` or ```nano ~/.bashrc```
-8. Paste in the following lines.
+8. Open up your.bashrc file in a text editor using ```vim ~/.bashrc``` or ```nano ~/.bashrc```
+9. Paste in the following lines.
 ```bash
 imperial_materials_download() {
         cd ~/imperial/imperial-computing-materials-downloader # path to your repository
@@ -37,9 +39,8 @@ imperial_materials_download() {
 
 alias impmat="imperial_materials_download"
 ```
-9. Refresh the your bashrc using the command ```source ~/.bashrc```
-10. You can just run ```impmat``` in the terminal to run the python script!
-
+10. Refresh the your bashrc using the command ```source ~/.bashrc```
+11. You can just run ```impmat``` in the terminal to run the python script!
 
 ## Optional Flags
 
@@ -54,3 +55,6 @@ alias impmat="imperial_materials_download"
 9. ```--help``` flag can be used to read about optional flags at anytime.
 
 You can just call the flags using the fist letter of the flag like so ```-r``` where r is the first letter of the real flag.
+
+## Feedback/Suggestions Form
+https://docs.google.com/forms/d/e/1FAIpQLSeSRPt70lMiD0XuTq8K1OPlwh3pZdNCM1Qa_eQTxraEsxMWRQ/viewform
