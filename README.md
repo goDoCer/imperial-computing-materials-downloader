@@ -30,9 +30,9 @@ Whenever the program is run it refreshes all the downloads as quite often profes
 8. Paste in the following lines.
 ```bash
 imperial_materials_download() {
-        cd ~/imperial/imperial-computing-materials-downloader
-        python3 materials-downloader.py "$@"
-        cd
+        cd ~/imperial/imperial-computing-materials-downloader # path to your repository
+        python3 materials-downloader.py "$@"                  # call to script
+        cd -                                                  # returning to working directory
 }
 
 alias impmat="imperial_materials_download"
