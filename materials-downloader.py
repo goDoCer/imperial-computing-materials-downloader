@@ -8,7 +8,7 @@ from config import *
 from webhelpers import *
 from argsparser import *
 
-from distutils.dir_util import copy_tree
+from shutil import copytree, ignore_patterns
 from distutils.dir_util import remove_tree
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -96,6 +96,6 @@ if __name__ == "__main__":
     print("Finishing...")
     
     # Moving the dowloads to the specified directory
-    copy_tree(base_dir, DIRECTORY)
+    copytree(base_dir, DIRECTORY, ignore=ignore_patterns("*.crdownload"))
     remove_tree(base_dir)
     print("DONE!!!")
