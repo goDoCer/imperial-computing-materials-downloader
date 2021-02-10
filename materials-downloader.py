@@ -123,9 +123,10 @@ if __name__ == "__main__":
     print("Finishing...")
 
     ############################# CLEAN UP #############################
-    for item in base_dir:
-        if item.endswith(".crdownload"):
-            os.remove(os.path.join(base_dir, item))
+    for parent, dirnames, filenames in os.walk(base_dir):
+        for fn in filenames:
+            if fn.lower().endswith('.crdownload'):
+                os.remove(os.path.join(parent, fn))
 
     # Moving the dowloads to the specified directory
     save_dir = DIRECTORY
