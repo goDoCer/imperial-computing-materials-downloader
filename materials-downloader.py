@@ -95,6 +95,7 @@ if __name__ == "__main__":
     except WebDriverException or FileNotFoundError:
         print("There is something wrong with your chromedriver installation")
         print(f"Run 'sh get_chromedriver.sh' in {os.getcwd()} to get the latest version")
+        print("You can also run this command with the -u (--update-chromedriver) flag.")
         quit()
 
     driver.get(MATERIALS_URL)

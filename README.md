@@ -50,5 +50,6 @@ alias impmat="imperial_materials_download"
 5. ```-p <password>``` flag can be used to set the password.
 6. ```-d <dir>``` flag can be used to set where the directory containing all the materials is present.
 7. ```-c``` flag to view your credentials.
-8. ```-v``` flag can be used for verbosity.
-9. ```-h``` flag can be used to read about optional flags at anytime.
+8. ```-u``` flag to update your chromedriver installation.
+9. ```-v``` flag can be used for verbosity.
+10. ```-h``` flag can be used to read about optional flags at anytime.
