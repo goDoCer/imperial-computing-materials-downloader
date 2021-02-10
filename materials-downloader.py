@@ -10,8 +10,7 @@ from webhelpers import *
 from argsparser import *
 
 from getpass import getpass
-from shutil import copytree, ignore_patterns
-from distutils.dir_util import remove_tree
+from distutils.dir_util import remove_tree, copy_tree
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import WebDriverException
@@ -109,14 +108,30 @@ if __name__ == "__main__":
     print("authenticating...")
     authenticate(driver)
 
-    # DOWNLOADING
+    ############################# DOWNLOADING #############################
     base_dir = "./downloads"
-    download_courses(driver, base_dir=base_dir, verbose=verbose)
+    try:
+        os.makedirs(base_dir)
+    except Exception:
+        pass
 
+    if args.quick:
+        download_course(driver, args.quick, base_dir=base_dir, verbose=verbose)
+    else:
+        download_courses(driver, base_dir=base_dir, verbose=verbose)
     driver.quit()
     print("Finishing...")
 
+    ############################# CLEAN UP #############################
+    for item in base_dir:
+        if item.endswith(".crdownload"):
+            os.remove(os.path.join(base_dir, item))
+
     # Moving the dowloads to the specified directory
-    copytree(base_dir, DIRECTORY, ignore=ignore_patterns("*.crdownload"))
+    save_dir = DIRECTORY
+    if args.location is not None:
+        save_dir = args.location
+
+    copy_tree(base_dir, save_dir)
     remove_tree(base_dir)
     print("DONE!!!")

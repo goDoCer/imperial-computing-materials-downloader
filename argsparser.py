@@ -19,6 +19,11 @@ def get_args():
     parser.add_argument("-u", "--update-chromedriver",
                         help="Updates the chromedriver installation", action="store_true")
 
+    parser.add_argument("-q", "--quick", help="gets materials for the provided course_code",
+                        action="store", type=str)
+    parser.add_argument("-l", "--location", help="stores downloads in specified location",
+                        action="store", type=str)
+
     parser.add_argument(
         "-d", "--dir", help="sets the directory where the materials should be stored", action="store")
     parser.add_argument("-s", "--shortcode",
