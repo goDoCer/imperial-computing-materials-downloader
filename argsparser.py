@@ -7,7 +7,7 @@ def get_args():
   parser.add_argument("-v", "--verbose", help="sets uotput to be verbose", action="store_true")                      
   parser.add_argument("-c", "--credentials", help="shows the credentials", action="store_true")
 
-  parser.add_argument("-e", "--easymarking", help="gets feedback from E(asy) marking platform", action="store_true")
+  parser.add_argument("-u", "--update-chromedriver", help="Updates the chromedriver installation", action="store_true")
 
   parser.add_argument("-q", "--quick", help="gets materials for the provided course_code", 
                                         action="store", type=str)

@@ -1,6 +1,7 @@
 import sys
 import os
 import json
+import subprocess
 import datetime as dt
 
 sys.path.insert(1, './lib')
@@ -13,6 +14,7 @@ from shutil import copytree, ignore_patterns
 from distutils.dir_util import remove_tree
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import WebDriverException
 
 if __name__ == "__main__":
 
@@ -24,6 +26,10 @@ if __name__ == "__main__":
         if args.credentials:
             [print(f"Your {key} is set as {auth[key]}") for key in ["shortcode", "directory"]]
             exit = True
+
+        if args.update_chromedriver:
+            subprocess.call(["sh", "./get_chromedriver.sh"])
+            exit =True
 
         if s := args.shortcode:
             auth["shortcode"] = s
@@ -84,7 +90,13 @@ if __name__ == "__main__":
     if headless:
         options.add_argument('headless')
 
-    driver = webdriver.Chrome(options=chrome_options, executable_path=CHROMEDRIVER_PATH)
+    try:
+        driver = webdriver.Chrome(options=chrome_options, executable_path=CHROMEDRIVER_PATH)
+    except WebDriverException or FileNotFoundError:
+        print("There is something wrong with your chromedriver installation")
+        print(f"Run 'sh get_chromedriver.sh' in {os.getcwd()} to get the latest version")
+        quit()
+
     driver.get(MATERIALS_URL)
 
     print("authenticating...")
