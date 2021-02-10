@@ -29,19 +29,25 @@ if __name__ == "__main__":
             print(f"Shortcode set to {args.shortcode}")
             exit = True
 
-        if args.password:
-            auth["password"] = args.password
-            print(f"Password set to {args.password}")
+        if p := args.password:
+            auth["password"] = p
+            print(f"Password set to {p}")
             exit = True
 
-        if args.dir:
-            if os.path.isdir(args.dir):
-                auth["directory"] = args.dir
-                print(f"Directory set to {args.dir}")
+        if d := args.dir:
+            if os.path.isdir(d):
+                print(f"Directory set to {d}")
             else:
-                print(f"{args.dir} is not a valid directory!!!")
-                print(f"Please pass in a valid directory")
+                print(f"{d} is not a valid directory!!!")
+                
+                response = input(f"Do you want to create directory {d}? (Y/n) ").lower()
+                if response == "y" or response == "or":
+                    print(f"Made directory {d}")
+                    os.mkdir(d)
+                else:    
+                    print(f"Please pass in a valid directory")
 
+            auth["directory"] = d
             exit = True
             
     with open("lib/auth.json", "wt") as authfile:
