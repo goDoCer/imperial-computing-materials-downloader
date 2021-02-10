@@ -6,7 +6,7 @@ This program can be used to avoid the hassle of downloading everything manually.
 
 It downloads all the files from a student's materials page for that year. It also sets up a nice directory structure by year of study and course names.
 
-Whenever the program is run it refreshes all the downloads as quite often professors change the naming of the uploaded materials. If you want to refresh just one course, you can do that as well.
+Whenever the program is run it refreshes all the downloads as quite often professors change the the uploaded materials. If you want to refresh just one course, you can do that as well using the -q (--quick) flag.
 
 ## Requirements
 
@@ -17,7 +17,7 @@ Whenever the program is run it refreshes all the downloads as quite often profes
 
 ## How to use it
 
-1. Download this repository.
+1. Clone/Download this repository.
 2. Make sure you have python3 installed. You can download it using ```sudo apt install python3-pip```. 
 3. Open the teminal and go to where you have this repository.
 4. Run ```pip3 install -r requirements.txt```
