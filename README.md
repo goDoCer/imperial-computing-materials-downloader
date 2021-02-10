@@ -44,15 +44,15 @@ alias impmat="imperial_materials_download"
 
 ## Optional Flags
 
-1. ```--quick <course_code>``` flag can be used to refresh materials for a particular course only. For example, if you just want to refresh the materials for the course 40009 - Computer Practical 1, you should run ```python3 materials-downloader.py -q 40009```.
-2. ```--location <location>``` flag to store the downloaded materials in a place other tha the set directory.
-3. ```--real``` flag can be used to run the browser outside of headless mode.
-4. ```--shortcode <shortcode>``` flag can be used to set your shortcode.
-5. ```--password ``` flag can be used to set the password.
-6. ```--dir <dir>``` flag can be used to set where the directory containing all the materials is present.
-7. ```--credentials ``` flag to view your credentials.
-8. ```--update-chromedriver``` flag to update your chromedriver installation.
-9. ```--help``` flag can be used to read about optional flags at anytime.
+<!-- 1. ```--quick <course_code>``` flag can be used to refresh materials for a particular course only. For example, if you just want to refresh the materials for the course 40009 - Computer Practical 1, you should run ```python3 materials-downloader.py -q 40009```. -->
+<!-- 1. ```--location <location>``` flag to store the downloaded materials in a place other tha the set directory. -->
+1. ```--real``` flag can be used to run the browser outside of headless mode.
+2. ```--shortcode <shortcode>``` flag can be used to set your shortcode.
+3. ```--password ``` flag can be used to set the password.
+4. ```--dir <dir>``` flag can be used to set where the directory containing all the materials is present.
+5. ```--credentials ``` flag to view your credentials.
+6. ```--update-chromedriver``` flag to update your chromedriver installation.
+7. ```--help``` flag can be used to read about optional flags at anytime.
 
 You can just call the flags using the fist letter of the flag like so ```-r``` where r is the first letter of the real flag.
 
