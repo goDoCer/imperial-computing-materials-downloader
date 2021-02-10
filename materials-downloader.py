@@ -103,7 +103,7 @@ if __name__ == "__main__":
     print("authenticating...")
     authenticate(driver)
 
-    base_dir = "./downloads"
+    base_dir = "./Downloads"
     if args.quick:
         download_course(driver, args.quick, base_dir=base_dir, verbose=verbose)
     else:
@@ -113,9 +113,6 @@ if __name__ == "__main__":
     print("Finishing...")
     
     # Moving the dowloads to the specified directory
-    if not os.path.isdir(DIRECTORY):
-        os.mkdir(DIRECTORY)
-
     copytree(base_dir, DIRECTORY, ignore=ignore_patterns("*.crdownload"))
     remove_tree(base_dir)
     print("DONE!!!")
