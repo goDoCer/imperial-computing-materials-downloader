@@ -22,6 +22,15 @@ if __name__ == "__main__":
     exit = False
 
     ############################# NON SELENIUM FLAGS #############################
+        # open("lib/auth.json")
+    try:
+        open("auth.json")
+    except FileNotFoundError:
+        file = open("auth.json", "w+")
+        file.write('{"shortcode": "XXXXX", "password": "XXXXX", "directory": "XXXXX"}')
+
+    quit()
+
     with open("lib/auth.json") as authfile:
         auth = json.load(authfile)
         if args.credentials:
